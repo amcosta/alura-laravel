@@ -15,13 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/series', function() {
-    $series = ["Walking Dead", "La Casa de Papel", "Titans"];
-
-    $lista = array_reduce($series, function($string, $serie) {
-        $string .= "<li>$serie</li>";
-        return $string;
-    }, "");
-
-    return "<ul>$lista</ul>";
-});
+Route::get('/series', 'SeriesController@index');
