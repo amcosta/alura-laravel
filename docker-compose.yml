@@ -1,0 +1,8 @@
+version: "3"
+services:
+  app:
+    image: nanoninja/php-fpm:7.2
+    volumes:
+      - .:/var/www/html
+    ports:
+      - 8181:8000
