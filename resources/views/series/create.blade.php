@@ -9,7 +9,9 @@ Adicionar Série
 @endsection
 
 @section('conteudo')
-    <form action="/series/create" method="post">
+    <form method="post">
+        @csrf
+
         <div class="form-group">
             <label for="nome">Nome</label>
             <input type="text" class="form-control" id="nome" name="nome" />
