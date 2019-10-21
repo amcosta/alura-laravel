@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 class SeriesController extends Controller
 {
     public function index() {
-        $series = ["Walking Dead", "La Casa de Papel", "Titans", "Breaking Bad"];
-        return view('series.index', compact('series'));
+        return view('series.index', ['series' => Serie::all()]);
     }
 
     public function create() {
@@ -18,7 +17,7 @@ class SeriesController extends Controller
     }
 
     public function store(Request $request) {
-        $serie = new Serie($request->all());
-        var_dump($serie->save());
+        $serie = Serie::create($request->all());
+        return redirect()->route('serie.index');
     }
 }
