@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\SerieFormRequest;
 use App\Serie;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class SeriesController extends Controller
         return view('series.create');
     }
 
-    public function store(Request $request)
+    public function store(SerieFormRequest $request)
     {
         $serie = Serie::create($request->all());
         $msg = sprintf("Serie %s criada  com sucesso!", $serie->nome);
